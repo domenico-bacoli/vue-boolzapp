@@ -60,7 +60,8 @@
                         <div class="nav-main">
 
                             <ul>
-                                <li v-for="contact in contacts">
+
+                                <li v-for="(contact, index) in contacts" :class="index == activeContactIndex ? 'active' : ''" @click="startChat(index)" >
                                     <div class="item-image">
                                         <img :src="contact.avatar" alt="">
 
@@ -85,9 +86,9 @@
 
                     <div class="current-chat-user">
                         <div class="current-user">
-                            <img src="img/avatar_1.jpg" alt="">
+                            <img :src="contacts[activeContactIndex].avatar" alt="">
                             <div class="current-user-text">
-                                <div class="user-name">Michele</div>
+                                <div class="user-name"> {{ contacts[activeContactIndex].name}}</div>
                                 <div class="last-access">Ultimo accesso oggi alle 12:00</div>
                             </div>
                         </div>
@@ -98,16 +99,15 @@
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                         
-
                     </div>
 
                     <div class="current-chat-messages">
                         <div class="my-user-send-messages">
-                            <div class="send-messages">Hai portato a spasso il cane?</div>
-                            <div class="send-messages">Ricordati di stendere i panni</div>
+                            <div class="send-messages">{{ contacts[activeContactIndex].messages[0].message }}</div>
+                            <div class="send-messages">{{ contacts[activeContactIndex].messages[1].message }}</div>
                         </div>
                         <div class="my-user-received-messages">
-                            <div class="received-messages">Tutto fatto!</div>
+                            <div class="received-messages">{{ contacts[activeContactIndex].messages[2].message }}</div>
                         </div>
                     </div>
 
@@ -117,6 +117,7 @@
                         <i class="fa-solid fa-microphone"></i>
                     </div>
                 </section>
+
             </main>
 
 

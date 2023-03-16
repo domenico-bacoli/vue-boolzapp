@@ -98,6 +98,7 @@ body{
     justify-content: space-between;
     padding: 8px 20px;
     border-bottom: 1px solid #eaeaea;
+    cursor: pointer;
 }
 
 .container main .left-side nav .nav-main li .item-image{
@@ -211,3 +212,7 @@ body{
 }
 
 /* Fine RIGHT SIDE */
+
+.active{
+    background-color: gray;
+}

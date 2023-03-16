@@ -167,13 +167,17 @@ createApp({
                     }
                 ],
             }
-        ]
-        
-        
+        ],
 
-
-
-
+        activeContactIndex: 0,
     }
-  }
+  },
+  methods: {
+
+    startChat(index){
+        console.log("cliccato");
+        this.activeContactIndex = index;
+        }
+    }
+
 }).mount('#app')
