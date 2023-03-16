@@ -1,0 +1,213 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+}
+
+.container{
+    height: 100vh;
+}
+
+.container main{
+    display: flex;
+}
+
+/* Inizio LEFT SIDE */
+.container main .left-side{
+    width: 600px;
+    height: 100vh;
+    background-color: white;
+}
+
+.container main .left-side nav{
+    border-right: 1px solid rgb(200, 200, 200);
+}
+
+.container main .left-side nav .user{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    background-color: #eaeaea;
+    padding: 0 20px;
+}
+
+.container main .left-side nav .user .my-user{
+    display: flex;
+    align-items: center; 
+}
+
+.container main .left-side nav .user .my-user-option{
+    display: flex;
+    gap: 14px;
+    font-size: 18px;
+    color: rgb(117, 122, 124);
+}
+
+.container main .left-side nav .user .my-user img{
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.container main .left-side nav .nav-search-input .notification-active{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px;
+    background-color: rgb(140, 218, 251);
+}
+
+.container main .left-side nav .nav-search-input .notification-active i{
+    background-color: white;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 18px;
+    color: rgb(140, 218, 251);
+}
+
+.container main .left-side nav .nav-search-input .notification-active .notification-active-text{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 0.8em;
+}
+
+.container main .left-side nav .nav-search-input .search-input{
+    padding: 10px;
+    background-color: #f7f7f7;
+}
+
+.container main .left-side nav .nav-search-input .search-input input{
+    width: 100%;
+    padding: 8px 20px;
+    border-radius: 8px;
+    border: none;
+}
+
+.container main .left-side nav .nav-search-input .notification-active .notification-active-text a{
+    color: rgb(117, 122, 124);
+}
+
+.container main .left-side nav .nav-main li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 20px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.container main .left-side nav .nav-main li .item-image{
+    display: flex;
+}
+
+.container main .left-side nav .nav-main li .item-image .text .last-message-send{
+    font-size: 0.7em;
+}
+
+.container main .left-side nav .nav-main li img{
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+/* Fine LEFT SIDE */
+
+
+/* Inizio RIGHT SIDE */
+.container main .right-side{
+    width: 100%;
+}
+
+.container main .right-side .current-chat-user{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    background-color: #eaeaea;
+    padding: 0 20px;
+}
+
+.container main .right-side .current-chat-user .current-user{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.container main .right-side .current-chat-user .current-user img{
+    width: 50px;
+    border-radius: 50%;
+}
+
+.container main .right-side .current-chat-user .current-user .current-user-text .last-access{
+    color: gray;
+    margin-top: 4px;
+    font-size: .8em;
+}
+
+.container main .right-side .current-chat-user .current-chat-option{
+    display: flex;
+    gap: 16px;
+    font-size: 18px;
+    color: rgb(117, 122, 124);
+}
+
+.container main .right-side .current-chat-messages{
+    height: calc(100% - 140px);
+    background-color: white;
+    background-image: url(../img/mine.jpg);
+}
+
+.container main .right-side .current-chat-messages .my-user-send-messages{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+    padding: 60px 70px;
+}
+
+.container main .right-side .current-chat-messages .my-user-send-messages .send-messages,
+.container main .right-side .current-chat-messages .my-user-received-messages .received-messages{
+    min-height: 40px;
+    width: 300px;
+    background-color: #d5f9bd;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: .9em; 
+}
+
+.container main .right-side .current-chat-messages .my-user-received-messages{
+    padding: 0 70px;
+}
+
+.container main .right-side .current-chat-messages .my-user-received-messages .received-messages{
+    background-color: white;
+}
+
+.container main .right-side .input-message{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    background-color: #eaeaea;
+    padding: 0 40px;
+}
+
+.container main .right-side .input-message i {
+    font-size: 22px;
+    color: rgb(117, 122, 124);
+    cursor: pointer;
+}
+
+.container main .right-side .input-message input{
+    flex-grow: 1;
+    margin: 0 40px;
+    padding: 14px 18px;
+    border-radius: 8px;
+    border: none;
+}
+
+/* Fine RIGHT SIDE */
