@@ -21,6 +21,7 @@ body{
     width: 600px;
     height: 100vh;
     background-color: white;
+    overflow: auto;
 }
 
 .container main .left-side nav{
@@ -58,7 +59,7 @@ body{
     display: flex;
     align-items: center;
     gap: 16px;
-    padding: 12px;
+    padding: 16px;
     background-color: rgb(140, 218, 251);
 }
 
@@ -122,13 +123,12 @@ body{
     border-radius: 50%;
     margin-right: 20px;
 }
-
 /* Fine LEFT SIDE */
-
 
 /* Inizio RIGHT SIDE */
 .container main .right-side{
     width: 100%;
+    height: 100vh;
 }
 
 .container main .right-side .current-chat-user{
@@ -166,6 +166,7 @@ body{
 
 .container main .right-side .current-chat-messages{
     height: calc(100% - 140px);
+    overflow: auto;
     background-color: white;
     background-image: url(../img/mine.jpg);
 }
@@ -217,11 +218,6 @@ body{
     border-radius: 8px;
     border: none;
 }
-
 /* Fine RIGHT SIDE */
-
-
-
-
 
 

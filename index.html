@@ -21,6 +21,7 @@
                 <header class="left-side">
 
                     <nav>
+
                         <div class="nav-header">
 
                             <div class="user">
@@ -51,8 +52,8 @@
                                 </div>
                             </div>
 
-                            <div class="search-input">
-                                <input type="text" placeholder="Cerca o inizia una nuova chat">
+                            <div class="search-input">   
+                                <input v-model="searchContactInput" @keyup="searchNamePreview()" type="text" placeholder="Cerca o inizia una nuova chat">
                             </div>
 
                         </div>
@@ -61,7 +62,7 @@
 
                             <ul>
 
-                                <li v-for="(contact, index) in contacts" :class="index == activeContactIndex ? 'active' : ''" @click="startChat(index)" >
+                                <li v-for="(contact, index) in contacts" v-show="contact.visible" :class="index == activeContactIndex ? 'active' : ''" @click="startChat(index)" >
                                     <div class="item-image">
                                         <img :src="contact.avatar" alt="">
 

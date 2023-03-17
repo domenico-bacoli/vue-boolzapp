@@ -172,6 +172,7 @@ createApp({
         activeContactIndex: 0,
         newMessageSent: "",
         responseMessage: "ok",
+        searchContactInput: "",
     }
 },
     methods: {
@@ -202,7 +203,19 @@ createApp({
             }
 
             this.contacts[this.activeContactIndex].messages.push(responseMessageObj);
-        } 
+        },
+        
+        searchNamePreview() {
+            this.contacts.forEach((contact) => {
+
+                if(contact.name.toLowerCase().includes(this.searchContactInput.toLowerCase())) {
+                    contact.visible = true;
+
+                } else {
+                    contact.visible = false;
+                }
+            });
+        },
     }
 
 }).mount('#app')
