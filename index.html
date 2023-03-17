@@ -103,11 +103,10 @@
 
                     <div class="current-chat-messages">
                         <div class="my-user-send-messages">
-                            <div class="send-messages">{{ contacts[activeContactIndex].messages[0].message }}</div>
-                            <div class="send-messages">{{ contacts[activeContactIndex].messages[1].message }}</div>
-                        </div>
-                        <div class="my-user-received-messages">
-                            <div class="received-messages">{{ contacts[activeContactIndex].messages[2].message }}</div>
+                            <div v-for="singleMessage in contacts[activeContactIndex].messages" class="send-messages" :class="singleMessage.status">
+                                {{ singleMessage.message }}
+                            </div>
+                            
                         </div>
                     </div>
 

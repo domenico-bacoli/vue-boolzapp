@@ -101,6 +101,14 @@ body{
     cursor: pointer;
 }
 
+.container main .left-side nav .nav-main li:hover{
+    background-color: rgb(230, 230, 230);
+}
+
+.container main .left-side nav .nav-main li.active{
+    background-color: rgb(230, 230, 230);
+}
+
 .container main .left-side nav .nav-main li .item-image{
     display: flex;
 }
@@ -170,21 +178,20 @@ body{
     padding: 60px 70px;
 }
 
-.container main .right-side .current-chat-messages .my-user-send-messages .send-messages,
-.container main .right-side .current-chat-messages .my-user-received-messages .received-messages{
-    min-height: 40px;
-    width: 300px;
-    background-color: #d5f9bd;
+.container main .right-side .current-chat-messages .my-user-send-messages .send-messages{
+    min-height: 45px;
+    max-width: 60%;
     border-radius: 8px;
-    padding: 12px;
+    padding: 14px 24px;
     font-size: .9em; 
 }
 
-.container main .right-side .current-chat-messages .my-user-received-messages{
-    padding: 0 70px;
+.container main .right-side .current-chat-messages .my-user-send-messages .send-messages.sent{
+    background-color: #d5f9bd;
 }
 
-.container main .right-side .current-chat-messages .my-user-received-messages .received-messages{
+.container main .right-side .current-chat-messages .my-user-send-messages .send-messages.received{
+    align-self: flex-start;
     background-color: white;
 }
 
@@ -213,6 +220,8 @@ body{
 
 /* Fine RIGHT SIDE */
 
-.active{
-    background-color: gray;
-}
+
+
+
+
+
