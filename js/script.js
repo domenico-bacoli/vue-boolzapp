@@ -170,14 +170,39 @@ createApp({
         ],
 
         activeContactIndex: 0,
+        newMessageSent: "",
+        responseMessage: "ok",
     }
-  },
-  methods: {
+},
+    methods: {
 
-    startChat(index){
-        console.log("cliccato");
-        this.activeContactIndex = index;
-        }
+        startChat(index){
+            this.activeContactIndex = index;
+        },
+
+        addNewMessageSent(activeContactIndex) {
+
+            const messageSentObj = {
+                date: '',
+                message: this.newMessageSent,
+                status: 'sent'
+            };
+
+            this.contacts[activeContactIndex].messages.push(messageSentObj);
+            this.newMessageSent = "";
+
+            setTimeout(this.addNewMessageReceived, 1000);
+        },
+
+        addNewMessageReceived() {
+            const responseMessageObj = {
+                date: '',
+                message: this.responseMessage,
+                status: 'received'
+            }
+
+            this.contacts[this.activeContactIndex].messages.push(responseMessageObj);
+        } 
     }
 
 }).mount('#app')
