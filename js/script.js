@@ -191,9 +191,15 @@ createApp({
                 status: 'sent'
             };
 
-            this.contacts[this.activeContactIndex].messages.push(messageSentObj);
-            this.newMessageSent = "";
+            if(this.newMessageSent.trim() == '') { 
+                alert("Inserisci un messaggio valido");
+                clearInterval(reply);
 
+            }else{
+                this.contacts[this.activeContactIndex].messages.push(messageSentObj);
+                this.newMessageSent = "";
+            }
+      
             const responseRandomMessage = [
                     "Ciao come stai?",
                     "Grazie per il tuo messaggio",
@@ -210,11 +216,13 @@ createApp({
                 status: 'received'
             }
 
-            setTimeout(() => {
+            let reply = setTimeout(() => {
                 this.contacts[this.activeContactIndex].messages.push(responseMessageObj);
             }, 1000);
+    
 
-            console.log(responseRandomMessage[indexRandomMessage]);
+    
+
         },
         
         searchNamePreview() {
