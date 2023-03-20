@@ -174,6 +174,7 @@ createApp({
         responseMessage: "ok",
         searchContactInput: "",
         isDropMenuActive: false,
+        isInputMessageEmpty: true,
 
     }
 },
@@ -192,7 +193,7 @@ createApp({
             };
 
             if(this.newMessageSent.trim() == '') { 
-                alert("Inserisci un messaggio valido");
+                alert("Inserisci un messaggio valido!");
                 clearInterval(reply);
 
             }else{
@@ -219,9 +220,6 @@ createApp({
             let reply = setTimeout(() => {
                 this.contacts[this.activeContactIndex].messages.push(responseMessageObj);
             }, 1000);
-    
-
-    
 
         },
         

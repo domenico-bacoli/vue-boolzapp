@@ -125,15 +125,17 @@
                         </div>
     
                         <div class="input-message">
+                            
                             <i class="fa-regular fa-face-smile"></i>
-                            <input v-model="newMessageSent" type="text" @keyup.enter="addNewMessageSent()" placeholder="Scrivi un messaggio">
-                            <i class="fa-solid fa-microphone"></i> 
+                            <input v-model="newMessageSent" type="text"  
+                            @keyup.enter="addNewMessageSent()" placeholder="Scrivi un messaggio">
+                            <i class="fa-solid fa-microphone" v-show="newMessageSent == ''"></i> 
+                            <i class="fa-solid fa-paper-plane" v-show="newMessageSent != '' " @click="addNewMessageSent()"></i>
+
                         </div>
                     </section>
     
                 </main>
-    
-    
     
             </div>
             
