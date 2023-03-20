@@ -174,8 +174,16 @@ createApp({
         responseMessage: "ok",
         searchContactInput: "",
         isDropMenuActive: false,
-        isInputMessageEmpty: true,
 
+        
+        today: new Date(),
+        localDate: new Date().toLocaleDateString("it-IT"),
+
+        newDate: Intl.DateTimeFormat("it-It", {
+            hour: "numeric",
+            minute: "numeric"
+        }).format(this.today),
+        
     }
 },
     methods: {
@@ -186,8 +194,9 @@ createApp({
 
         addNewMessageSent() {
 
+
             const messageSentObj = {
-                date: '',
+                date: this.newDate,
                 message: this.newMessageSent,
                 status: 'sent'
             };
@@ -212,7 +221,7 @@ createApp({
             let indexRandomMessage = Math.floor((Math.random() * (responseRandomMessage.length - 1) + 1))
             
             const responseMessageObj = {
-                date: '',
+                date: this.newDate,
                 message: responseRandomMessage[indexRandomMessage],
                 status: 'received'
             }

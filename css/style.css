@@ -223,7 +223,7 @@ body{
 
 
 /* Inizio menu dropdown dei messaggi */
-
+/* da sistemare */
 .drop-menu i{
     cursor: pointer;
     display: none;
@@ -285,6 +285,19 @@ body{
     cursor: pointer;
 }
 
+.container main .right-side .input-message .fa-paper-plane {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    background-color: rgb(24, 153, 239);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding-right: 2px;
+}
+
 .container main .right-side .input-message input{
     flex-grow: 1;
     margin: 0 40px;
@@ -292,4 +305,11 @@ body{
     border-radius: 8px;
     border: none;
 }
+
+.fa-paper-plane{
+    color: blue;
+}
+
 /* Fine RIGHT SIDE */
+
+

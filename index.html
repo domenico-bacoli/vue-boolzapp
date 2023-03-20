@@ -70,7 +70,7 @@
                                                 <div>{{ contact.name }}</div>
                                                 <div v-for="lastMessage in contacts[index].messages" v-show="lastMessage.status == 'received'" class="last-message-send">{{ lastMessage.message }}</div>
                                             </div>
-    
+                                            
                                         </div>
                                         <div class="chat-hours">12:00</div>
                                     </li>
@@ -107,7 +107,7 @@
                                 <div v-for="(singleMessage, index) in contacts[activeContactIndex].messages" class="send-messages" :class="singleMessage.status" @click="dropDownActive()">
                                     {{ singleMessage.message }}
                                     <div class="message-date">
-                                        {{singleMessage.date}}
+                                        {{singleMessage.date }}
                                     </div>
                                     
 
@@ -125,12 +125,12 @@
                         </div>
     
                         <div class="input-message">
-                            
+
                             <i class="fa-regular fa-face-smile"></i>
                             <input v-model="newMessageSent" type="text"  
                             @keyup.enter="addNewMessageSent()" placeholder="Scrivi un messaggio">
                             <i class="fa-solid fa-microphone" v-show="newMessageSent == ''"></i> 
-                            <i class="fa-solid fa-paper-plane" v-show="newMessageSent != '' " @click="addNewMessageSent()"></i>
+                            <i class="fa-solid fa-paper-plane" v-show="newMessageSent != ''" @click="addNewMessageSent()"></i>
 
                         </div>
                     </section>
