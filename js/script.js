@@ -194,9 +194,19 @@ createApp({
             this.contacts[this.activeContactIndex].messages.push(messageSentObj);
             this.newMessageSent = "";
 
+            const responseRandomMessage = [
+                    "Ciao come stai?",
+                    "Grazie per il tuo messaggio",
+                    "Ti faccio sapere più tardi",
+                    "Ti richiamo",
+                    "A più tardi"
+                ];
+
+            let indexRandomMessage = Math.floor((Math.random() * (responseRandomMessage.length - 1) + 1))
+            
             const responseMessageObj = {
                 date: '',
-                message: this.responseMessage,
+                message: responseRandomMessage[indexRandomMessage],
                 status: 'received'
             }
 
@@ -204,6 +214,7 @@ createApp({
                 this.contacts[this.activeContactIndex].messages.push(responseMessageObj);
             }, 1000);
 
+            console.log(responseRandomMessage[indexRandomMessage]);
         },
         
         searchNamePreview() {
