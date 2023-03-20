@@ -182,8 +182,7 @@ createApp({
         newDate: Intl.DateTimeFormat("it-It", {
             hour: "numeric",
             minute: "numeric"
-        }).format(this.today),
-        
+        }).format(this.today),  
     }
 },
     methods: {
@@ -193,7 +192,6 @@ createApp({
         },
 
         addNewMessageSent() {
-
 
             const messageSentObj = {
                 date: this.newDate,
