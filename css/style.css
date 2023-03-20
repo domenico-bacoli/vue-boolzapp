@@ -27,8 +27,9 @@ body{
     left: 0;
     right: 0;
     width: 100%;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
 }
 
 .container main{
@@ -140,6 +141,10 @@ body{
     border-radius: 50%;
     margin-right: 20px;
 }
+
+.container main .left-side nav .nav-main li .chat-hours{
+    font-size: 0.8em;
+}
 /* Fine LEFT SIDE */
 
 /* Inizio RIGHT SIDE */
@@ -188,7 +193,7 @@ body{
     background-image: url(../img/mine.jpg);
 }
 
-.container main .right-side .current-chat-messages .my-user-send-messages{
+.container main .right-side .current-chat-messages .my-user-messages{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -196,19 +201,71 @@ body{
     padding: 60px 70px;
 }
 
-.container main .right-side .current-chat-messages .my-user-send-messages .send-messages{
-    min-height: 45px;
+.container main .right-side .current-chat-messages .my-user-messages .send-messages{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 40px;
     max-width: 60%;
+    min-width: 200px;
     border-radius: 8px;
-    padding: 14px 24px;
-    font-size: .9em; 
+    padding: 12px 40px 16px 20px;
+    font-size: .9em;
 }
 
-.container main .right-side .current-chat-messages .my-user-send-messages .send-messages.sent{
+.container main .right-side .current-chat-messages .my-user-messages .send-messages .message-date{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 6px;
+    font-size: 0.8em;
+}
+
+
+
+/* Inizio menu dropdown dei messaggi */
+
+.drop-menu i{
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+}
+
+.drop-menu-disappearing{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    top: 24px;
+    right: 0;
+    font-size: 0.8em;
+    list-style-type: none;
+    background-color: white;
+    border-radius: 8px;
+    padding: 14px;
+    visibility: hidden;
+    opacity: 0;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
+} 
+
+.send-messages:hover .drop-menu i{
+    display: flex;
+    align-self: flex-end;
+}
+
+.drop-menu-disappearing.active{
+    visibility: visible;
+    opacity: 1;
+    z-index: 1;
+}
+/* Fine menu dropdown dei messaggi */
+
+.container main .right-side .current-chat-messages .my-user-messages .send-messages.sent{
     background-color: #d5f9bd;
 }
 
-.container main .right-side .current-chat-messages .my-user-send-messages .send-messages.received{
+.container main .right-side .current-chat-messages .my-user-messages .send-messages.received{
     align-self: flex-start;
     background-color: white;
 }
@@ -236,5 +293,4 @@ body{
     border: none;
 }
 /* Fine RIGHT SIDE */
-
 

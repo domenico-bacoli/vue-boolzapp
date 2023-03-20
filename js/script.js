@@ -173,6 +173,8 @@ createApp({
         newMessageSent: "",
         responseMessage: "ok",
         searchContactInput: "",
+        isDropMenuActive: false,
+
     }
 },
     methods: {
@@ -181,7 +183,7 @@ createApp({
             this.activeContactIndex = index;
         },
 
-        addNewMessageSent(activeContactIndex) {
+        addNewMessageSent() {
 
             const messageSentObj = {
                 date: '',
@@ -189,20 +191,19 @@ createApp({
                 status: 'sent'
             };
 
-            this.contacts[activeContactIndex].messages.push(messageSentObj);
+            this.contacts[this.activeContactIndex].messages.push(messageSentObj);
             this.newMessageSent = "";
 
-            setTimeout(this.addNewMessageReceived, 1000);
-        },
-
-        addNewMessageReceived() {
             const responseMessageObj = {
                 date: '',
                 message: this.responseMessage,
                 status: 'received'
             }
 
-            this.contacts[this.activeContactIndex].messages.push(responseMessageObj);
+            setTimeout(() => {
+                this.contacts[this.activeContactIndex].messages.push(responseMessageObj);
+            }, 1000);
+
         },
         
         searchNamePreview() {
@@ -215,6 +216,12 @@ createApp({
                     contact.visible = false;
                 }
             });
+        },
+
+         dropDownActive() {
+
+            this.isDropMenuActive = !this.isDropMenuActive;
+            
         },
     }
 
