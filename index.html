@@ -24,7 +24,7 @@
     
                             <div class="nav-header">
     
-                                <div class="user" :class="isDarkView == true ? 'dark-view' : ''">
+                                <div class="user">
                                     <div class="my-user">
                                         <img src="img/avatar_io.jpg" alt="">
                                         <div class="current-user-text">
@@ -53,7 +53,7 @@
                                     </div>
                                 </div>
     
-                                <div class="search-input" :class="isDarkView == true ? 'dark-view' : ''">   
+                                <div class="search-input">   
                                     <input class="place-icon" :class="isDarkView == true ? 'dark-view' : ''" v-model="searchContactInput" @keyup="searchNamePreview()"
                                      type="text" placeholder="&#xf002;   Cerca o inizia una nuova chat">
                                 </div>
@@ -89,9 +89,9 @@
     
                     </header>
     
-                    <section class="right-side">
+                    <section class="right-side" :class="isDarkView == true ? 'dark-view' : ''">
     
-                        <div class="current-chat-user" :class="isDarkView == true ? 'dark-view' : ''">
+                        <div class="current-chat-user">
                             <div class="current-user">
                                 <img :src="contacts[activeContactIndex].avatar" :alt="contacts[activeContactIndex].name">
                                 <div class="current-user-text">
@@ -108,7 +108,7 @@
                             
                         </div>
     
-                        <div class="current-chat-messages" :class="isDarkView == true ? 'dark-view' : ''">
+                        <div class="current-chat-messages">
                             <div class="my-user-messages">
                                 <div v-for="(singleMessage, index) in contacts[activeContactIndex].messages" 
                                 class="send-messages" :class="singleMessage.status" @click="dropDownActive()">
@@ -131,7 +131,7 @@
                             </div>
                         </div>
     
-                        <div class="input-message" :class="isDarkView == true ? 'dark-view' : ''">
+                        <div class="input-message">
 
                             <i class="fa-regular fa-face-smile"></i>
                             <input :class="isDarkView == true ? 'dark-view' : ''" v-model="newMessageSent" type="text"  
