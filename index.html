@@ -14,142 +14,115 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <div id="app">
+        <div class="container" :class="isDarkView == true ? 'dark-view' : ''">
+            <main>
+                <header class="left-side">
+                    <nav>
+                        <div class="nav-header">
+                            <div class="user">
+                                <div class="my-user">
+                                    <img src="img/avatar_io.jpg" alt="">
+                                    <div class="current-user-text">
+                                        <div class="user-name">Sofia</div>    
+                                    </div>
+                                </div>
+    
+                                <div class="my-user-option">
+                                    <i @click="darkMode()" class="fa-solid fa-circle-half-stroke"></i>
+                                    <i class="fa-solid fa-circle-notch"></i>
+                                    <i class="fa-solid fa-message"></i>
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </div>
+    
+                            </div>
+                        </div>
 
-            <div class="container" :class="isDarkView == true ? 'dark-view' : ''">
-                <main>
-    
-                    <header class="left-side">
-    
-                        <nav>
-    
-                            <div class="nav-header">
-    
-                                <div class="user">
-                                    <div class="my-user">
-                                        <img src="img/avatar_io.jpg" alt="">
-                                        <div class="current-user-text">
-                                            <div class="user-name">Sofia</div>    
-                                        </div>
-                                    </div>
-        
-                                    <div class="my-user-option">
-                                        <i @click="darkMode()" class="fa-solid fa-circle-half-stroke"></i>
-                                        <i class="fa-solid fa-circle-notch"></i>
-                                        <i class="fa-solid fa-message"></i>
-                                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                                    </div>
-        
+                        <div class="nav-search-input">
+                            <div class="notification-active">
+                                <i class="fa-solid fa-bell-slash"></i>
+                                <div class="notification-active-text">
+                                    <div>Ricevi notifiche di nuovi messaggi</div>
+                                    <div><a href="#">Attiva notifiche desktop</a></div>
                                 </div>
-    
                             </div>
-    
-                            <div class="nav-search-input">
-    
-                                <div class="notification-active">
-                                    <i class="fa-solid fa-bell-slash"></i>
-                                    <div class="notification-active-text">
-                                        <div>Ricevi notifiche di nuovi messaggi</div>
-                                        <div><a href="#">Attiva notifiche desktop</a></div>
-                                    </div>
-                                </div>
-    
-                                <div class="search-input">   
-                                    <input class="place-icon" v-model="searchContactInput" @keyup="searchNamePreview()"
-                                     type="text" placeholder="&#xf002;   Cerca o inizia una nuova chat">
-                                </div>
-    
+                            <div class="search-input">   
+                                <input class="place-icon" v-model="searchContactInput" @keyup="searchNamePreview()"
+                                 type="text" placeholder="&#xf002;   Cerca o inizia una nuova chat">
                             </div>
-    
-                            <div class="nav-main">
-    
-                                <ul>
-    
-                                    <li v-for="(contact, index) in contacts" v-show="contact.visible" 
-                                    :class="index == activeContactIndex ? 'active' : ''" @click="startChat(index)" >
+                        </div>
+                        <div class="nav-main">
+                            <ul>
+                                <li v-for="(contact, index) in contacts" v-show="contact.visible" 
+                                :class="index == activeContactIndex ? 'active' : ''" @click="startChat(index)" >
 
-                                        <div class="item-image">
-                                            <img :src="contact.avatar" :alt="'immagine profilo di ' + contact.name">
-    
-                                            <div class="text">
-                                                <div>{{ contact.name }}</div>
-                                                <div v-for="lastMessage in contacts[index].messages" 
-                                                v-show="lastMessage.status == 'received'" class="last-message-send">
-                                                {{ lastMessage.message }}</div>
-                                            </div>
-                                            
+                                    <div class="item-image">
+                                        <img :src="contact.avatar" :alt="'immagine profilo di ' + contact.name">
+
+                                        <div class="text">
+                                            <div>{{ contact.name }}</div>
+                                            <div v-for="lastMessage in contacts[index].messages" 
+                                            v-show="lastMessage.status == 'received'" class="last-message-send">
+                                            {{ lastMessage.message }}</div>
                                         </div>
-                                        <div class="chat-hours">12:00</div>
-                                    </li>
-    
-                                </ul>
-    
+                                        
+                                    </div>
+                                    <div class="chat-hours">12:00</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </header>
+
+                <section class="right-side">
+                    <div class="current-chat-user">
+                        <div class="current-user">
+                            <img :src="contacts[activeContactIndex].avatar" :alt="contacts[activeContactIndex].name">
+                            <div class="current-user-text">
+                                <div class="user-name"> {{ contacts[activeContactIndex].name}}</div>
+                                <div class="last-access">Ultimo accesso oggi alle 12:00</div>
                             </div>
-    
-                        </nav>
-    
-                    </header>
-    
-                    <section class="right-side">
-    
-                        <div class="current-chat-user">
-                            <div class="current-user">
-                                <img :src="contacts[activeContactIndex].avatar" :alt="contacts[activeContactIndex].name">
-                                <div class="current-user-text">
-                                    <div class="user-name"> {{ contacts[activeContactIndex].name}}</div>
-                                    <div class="last-access">Ultimo accesso oggi alle 12:00</div>
+                        </div>
+
+                        <div class="current-chat-option">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>          
+                    </div>
+
+                    <div class="current-chat-messages">
+                        <div class="my-user-messages">
+                            <div v-for="(singleMessage, index) in contacts[activeContactIndex].messages" 
+                            class="send-messages" :class="singleMessage.status" @click="dropDownActive()">
+                                {{ singleMessage.message }}
+                                <div class="message-date">
+                                    {{ singleMessage.date }}
                                 </div>
-                            </div>
-    
-                            <div class="current-chat-option">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                                <i class="fa-solid fa-paperclip"></i>
-                                <i class="fa-solid fa-ellipsis-vertical"></i>
-                            </div>
                             
-                        </div>
-    
-                        <div class="current-chat-messages">
-                            <div class="my-user-messages">
-                                <div v-for="(singleMessage, index) in contacts[activeContactIndex].messages" 
-                                class="send-messages" :class="singleMessage.status" @click="dropDownActive()">
-                                    {{ singleMessage.message }}
-                                    <div class="message-date">
-                                        {{ singleMessage.date }}
-                                    </div>
-                                    
-
-                                    <div class="drop-menu">
-                                        <i class="fa-solid fa-caret-down"></i>
-                                        <ul class="drop-menu-disappearing" :class="isDropMenuActive == true ? 'active' : ''">
-                                            <li>Message Info</li>
-                                            <li>Delete Message</li>
-                                        </ul>
-                                    </div>
-
+                                <div class="drop-menu">
+                                    <i class="fa-solid fa-caret-down"></i>
+                                    <ul class="drop-menu-disappearing" :class="isDropMenuActive == true ? 'active' : ''">
+                                        <li>Message Info</li>
+                                        <li>Delete Message</li>
+                                    </ul>
                                 </div>
-                                
-                            </div>
+                            </div>  
                         </div>
-    
-                        <div class="input-message">
+                    </div>
 
-                            <i class="fa-regular fa-face-smile"></i>
-                            <input v-model="newMessageSent" type="text"  
-                            @keyup.enter="addNewMessageSent()" placeholder="Scrivi un messaggio">
-                            <i class="fa-solid fa-microphone" v-show="newMessageSent == ''"></i> 
-                            <i class="fa-solid fa-paper-plane" v-show="newMessageSent != ''" @click="addNewMessageSent()"></i>
+                    <div class="input-message">
 
-                        </div>
-                    </section>
-    
-                </main>
-    
-            </div>
-            
+                        <i class="fa-regular fa-face-smile"></i>
+                        <input v-model="newMessageSent" type="text"  
+                        @keyup.enter="addNewMessageSent()" placeholder="Scrivi un messaggio">
+                        <i class="fa-solid fa-microphone" v-show="newMessageSent == ''"></i> 
+                        <i class="fa-solid fa-paper-plane" v-show="newMessageSent != ''" @click="addNewMessageSent()"></i>
+                    </div>
+                </section>
+            </main>
+        </div>          
         <div id="background-top"></div>
     </div>
-
-
 
     <script type="text/javascript" src="js/script.js"></script>
 </body>

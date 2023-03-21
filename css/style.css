@@ -224,9 +224,8 @@ body{
     font-size: 0.9em;
 }
 
-
-
 /* Inizio menu dropdown dei messaggi */
+
 /* da sistemare */
 .drop-menu i{
     cursor: pointer;
@@ -309,9 +308,7 @@ body{
     border-radius: 8px;
     border: none;
 }
-
 /* Fine RIGHT SIDE */
-
 
 /* Start Dark Mode */
 .container.dark-view,
