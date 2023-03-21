@@ -202,7 +202,7 @@ createApp({
 
             if(this.newMessageSent.trim() == '') { 
                 alert("Inserisci un messaggio valido!");
-                clearInterval(reply);
+                return
 
             }else{
                 this.contacts[this.activeContactIndex].messages.push(messageSentObj);
@@ -225,7 +225,7 @@ createApp({
                 status: 'received'
             }
 
-            let reply = setTimeout(() => {
+            setTimeout(() => {
                 this.contacts[this.activeContactIndex].messages.push(responseMessageObj);
             }, 1000);
 

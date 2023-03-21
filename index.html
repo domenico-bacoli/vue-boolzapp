@@ -18,7 +18,7 @@
             <div class="container" :class="isDarkView == true ? 'dark-view' : ''">
                 <main>
     
-                    <header class="left-side" :class="isDarkView == true ? 'dark-view' : ''">
+                    <header class="left-side">
     
                         <nav>
     
@@ -43,7 +43,7 @@
     
                             </div>
     
-                            <div class="nav-search-input" :class="isDarkView == true ? 'dark-view' : ''">
+                            <div class="nav-search-input">
     
                                 <div class="notification-active">
                                     <i class="fa-solid fa-bell-slash"></i>
@@ -54,7 +54,7 @@
                                 </div>
     
                                 <div class="search-input">   
-                                    <input class="place-icon" :class="isDarkView == true ? 'dark-view' : ''" v-model="searchContactInput" @keyup="searchNamePreview()"
+                                    <input class="place-icon" v-model="searchContactInput" @keyup="searchNamePreview()"
                                      type="text" placeholder="&#xf002;   Cerca o inizia una nuova chat">
                                 </div>
     
@@ -89,7 +89,7 @@
     
                     </header>
     
-                    <section class="right-side" :class="isDarkView == true ? 'dark-view' : ''">
+                    <section class="right-side">
     
                         <div class="current-chat-user">
                             <div class="current-user">
@@ -134,7 +134,7 @@
                         <div class="input-message">
 
                             <i class="fa-regular fa-face-smile"></i>
-                            <input :class="isDarkView == true ? 'dark-view' : ''" v-model="newMessageSent" type="text"  
+                            <input v-model="newMessageSent" type="text"  
                             @keyup.enter="addNewMessageSent()" placeholder="Scrivi un messaggio">
                             <i class="fa-solid fa-microphone" v-show="newMessageSent == ''"></i> 
                             <i class="fa-solid fa-paper-plane" v-show="newMessageSent != ''" @click="addNewMessageSent()"></i>

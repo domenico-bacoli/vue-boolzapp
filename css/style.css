@@ -315,48 +315,56 @@ body{
 
 /* Start Dark Mode */
 .container.dark-view,
-.container main .left-side.dark-view,
-.container main .left-side.dark-view nav .user,
-.container main .left-side.dark-view nav .nav-search-input .search-input,
-.container main .right-side.dark-view .current-chat-user,
-.container main .right-side.dark-view .current-chat-messages,
-.container main .right-side.dark-view .input-message
+.container.dark-view main .left-side,
+.container.dark-view main .left-side nav .user,
+.container.dark-view main .left-side nav .nav-search-input .search-input,
+.container.dark-view main .right-side .current-chat-user,
+.container.dark-view main .right-side .current-chat-messages,
+.container.dark-view main .right-side .input-message
 {
     background-color: rgb(25, 25, 25);
     color: rgb(190, 190, 190);
 }
 
-.container main .right-side .input-message input.dark-view,
-.container main .left-side nav .nav-search-input .search-input input.dark-view{
+.container.dark-view main .left-side nav .user{
+    border-right: 1px solid rgb(78, 78, 78);
+}
+
+.container.dark-view main .right-side .input-message{
+    border-left: 1px solid rgb(78, 78, 78);
+}
+
+.container.dark-view main .right-side .input-message input,
+.container.dark-view main .left-side nav .nav-search-input .search-input input{
     background-color: rgb(55, 55, 55);
 }
 
-.container main .right-side.dark-view .current-chat-messages {
+.container.dark-view main .right-side .current-chat-messages {
     color: rgb(50, 50, 50);
     filter: invert(100%);
 }
 
-.container main .left-side.dark-view nav .nav-main li{
+.container.dark-view main .left-side nav .nav-main li{
     border-bottom: 1px solid rgb(78, 78, 78);
 }
 
-.container main .left-side.dark-view nav .nav-main li:hover{
+.container.dark-view main .left-side nav .nav-main li:hover{
     background-color: rgb(130, 130, 130);
     color: white;
 }
 
-.container main .left-side.dark-view nav .nav-main li.active{
+.container.dark-view main .left-side nav .nav-main li.active{
     background-color: rgb(130, 130, 130);
     color: white;
 }
 
-.container main .right-side.dark-view .current-chat-messages .my-user-messages .send-messages.sent{
+.container.dark-view main .right-side .current-chat-messages .my-user-messages .send-messages.sent{
     background-color: rgb(0, 150, 136);
     filter: invert(100%);
     color: rgb(190, 190, 190);
 }
 
-.container main .right-side.dark-view .current-chat-messages .my-user-messages .send-messages.received{
+.container.dark-view main .right-side .current-chat-messages .my-user-messages .send-messages.received{
     background-color: rgb(78, 78, 78);
     filter: invert(100%);
     color: rgb(190, 190, 190);
