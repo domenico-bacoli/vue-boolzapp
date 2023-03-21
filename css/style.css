@@ -108,6 +108,10 @@ body{
     border: none;
 }
 
+.place-icon{
+    font-family: sans-serif, fontawesome;
+}
+
 .container main .left-side nav .nav-search-input .notification-active .notification-active-text a{
     color: rgb(117, 122, 124);
 }
@@ -307,5 +311,42 @@ body{
 }
 
 /* Fine RIGHT SIDE */
+
+.container.dark-view,
+.container main .left-side.dark-view,
+.container main .left-side nav .user.dark-view,
+.container main .left-side nav .user .my-user-option.dark-view,
+.container main .left-side nav .nav-search-input .search-input.dark-view,
+.container main .left-side nav .nav-search-input .search-input input.dark-view,
+.container main .right-side .current-chat-user.dark-view,
+.container main .right-side .current-chat-messages.dark-view,
+.container main .right-side .input-message.dark-view,
+.container main .right-side .input-message input.dark-view
+{
+    background-color: rgb(25, 25, 25);
+    color: rgb(190, 190, 190);
+    
+}
+
+.container main .right-side .current-chat-messages.dark-view {
+    color: rgb(43, 43, 43);
+    filter: invert(100%);
+    
+}
+
+.container main .left-side.dark-view nav .nav-main li{
+    border-bottom: 1px solid rgb(78, 78, 78);
+}
+
+.container main .left-side.dark-view nav .nav-main li:hover{
+    background-color: rgb(130, 130, 130);
+    color: white;
+}
+
+.container main .left-side.dark-view nav .nav-main li.active{
+    background-color: rgb(130, 130, 130);
+    color: white;
+}
+
 
 

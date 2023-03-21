@@ -15,16 +15,16 @@
 
     <div id="app">
 
-            <div class="container">
+            <div class="container" :class="isDarkView == true ? 'dark-view' : ''">
                 <main>
     
-                    <header class="left-side">
+                    <header class="left-side" :class="isDarkView == true ? 'dark-view' : ''">
     
                         <nav>
     
                             <div class="nav-header">
     
-                                <div class="user">
+                                <div class="user" :class="isDarkView == true ? 'dark-view' : ''">
                                     <div class="my-user">
                                         <img src="img/avatar_io.jpg" alt="">
                                         <div class="current-user-text">
@@ -33,6 +33,7 @@
                                     </div>
         
                                     <div class="my-user-option">
+                                        <i @click="darkMode()" class="fa-solid fa-circle-half-stroke"></i>
                                         <i class="fa-solid fa-circle-notch"></i>
                                         <i class="fa-solid fa-message"></i>
                                         <i class="fa-solid fa-ellipsis-vertical"></i>
@@ -42,7 +43,7 @@
     
                             </div>
     
-                            <div class="nav-search-input">
+                            <div class="nav-search-input" :class="isDarkView == true ? 'dark-view' : ''">
     
                                 <div class="notification-active">
                                     <i class="fa-solid fa-bell-slash"></i>
@@ -52,9 +53,9 @@
                                     </div>
                                 </div>
     
-                                <div class="search-input">   
-                                    <input v-model="searchContactInput" @keyup="searchNamePreview()"
-                                     type="text" placeholder="Cerca o inizia una nuova chat">
+                                <div class="search-input" :class="isDarkView == true ? 'dark-view' : ''">   
+                                    <input class="place-icon" :class="isDarkView == true ? 'dark-view' : ''" v-model="searchContactInput" @keyup="searchNamePreview()"
+                                     type="text" placeholder="&#xf002;   Cerca o inizia una nuova chat">
                                 </div>
     
                             </div>
@@ -90,7 +91,7 @@
     
                     <section class="right-side">
     
-                        <div class="current-chat-user">
+                        <div class="current-chat-user" :class="isDarkView == true ? 'dark-view' : ''">
                             <div class="current-user">
                                 <img :src="contacts[activeContactIndex].avatar" :alt="contacts[activeContactIndex].name">
                                 <div class="current-user-text">
@@ -107,7 +108,7 @@
                             
                         </div>
     
-                        <div class="current-chat-messages">
+                        <div class="current-chat-messages" :class="isDarkView == true ? 'dark-view' : ''">
                             <div class="my-user-messages">
                                 <div v-for="(singleMessage, index) in contacts[activeContactIndex].messages" 
                                 class="send-messages" :class="singleMessage.status" @click="dropDownActive()">
@@ -130,10 +131,10 @@
                             </div>
                         </div>
     
-                        <div class="input-message">
+                        <div class="input-message" :class="isDarkView == true ? 'dark-view' : ''">
 
                             <i class="fa-regular fa-face-smile"></i>
-                            <input v-model="newMessageSent" type="text"  
+                            <input :class="isDarkView == true ? 'dark-view' : ''" v-model="newMessageSent" type="text"  
                             @keyup.enter="addNewMessageSent()" placeholder="Scrivi un messaggio">
                             <i class="fa-solid fa-microphone" v-show="newMessageSent == ''"></i> 
                             <i class="fa-solid fa-paper-plane" v-show="newMessageSent != ''" @click="addNewMessageSent()"></i>

@@ -174,6 +174,7 @@ createApp({
         responseMessage: "ok",
         searchContactInput: "",
         isDropMenuActive: false,
+        isDarkView: false,
 
         
         today: new Date(),
@@ -244,9 +245,13 @@ createApp({
 
          dropDownActive() {
 
-            this.isDropMenuActive = !this.isDropMenuActive;
-            
+            this.isDropMenuActive = !this.isDropMenuActive;   
         },
+
+        darkMode(){
+            this.isDarkView = !this.isDarkView;
+            
+        }
     }
 
 }).mount('#app')
